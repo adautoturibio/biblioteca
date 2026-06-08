@@ -1,6 +1,3 @@
-
-
-
 <?php
     $host = "mysql_lab";
     $user = "root";
