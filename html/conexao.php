@@ -1,7 +1,7 @@
 <?php
-    $host = "mysql_lab";
+    $host = "mysql_lab"; //alterar host
     $user = "root";
-    $password = "123";
+    $password = "123"; //Alterar senha
     $bd = "banco";
 
     $conexao = new mysqli($host, $user, $password, $bd);

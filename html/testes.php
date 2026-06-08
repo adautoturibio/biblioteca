@@ -1,36 +1,80 @@
 <?php
-require_once "funcoes.php";
+require_once 'funcoes.php';
 
-echo "<h2>INSERIR LEITOR!</h2>";
-// inserirLeitor($conexao, "Adauto", "123", "08641712186", "62996867501", "2009-01-13", "admin");
-echo "Leitor inserido!";
+// CRUD LEITORES
 
-echo "<h2>LISTAR LEITOR!</h2>";
+echo "<h1> Inserir Leitor </h1>";
+// inserirLeitor($conexao, "Adauto", "123", "1111111111", "62991111111", "2000-01-01", 
+// "admin");
+echo "Leitor inserido <br>";
+
+echo "<h1> Listar Leitores </h1>";
 $leitor = listarLeitores($conexao);
-while ($l = $leitor->fetch_assoc()) {
-    print_r($l);
+while($leitores = $leitor->fetch_assoc()){
+    print_r($leitores);
     echo "<br>";
 }
 
-echo "<h2>BUSCAR LEITOR!</h2>";
-$leitor = buscarLeitor($conexao, 1);
+echo "<h1> Buscar leitor por ID </h1>";
+$leitor = buscarLeitores($conexao, 1);
 print_r($leitor->fetch_assoc());
 echo "<br>";
 
-echo "<h2>BUSCAR LEITOR POR NOME!</h2>";
-$leitores = buscarLeitorPorNome($conexao, "Adauto");
-while ($leitor = $leitores ->fetch_assoc()){
-    print_r($leitor);
+
+echo "<h1> Buscar leitor por nome </h1>";
+$leitor = buscarLeitoresPorNome($conexao, "Adauto");
+while($leitores = $leitor->fetch_assoc()){
+    print_r($leitores);
     echo "<br>";
 }
 
-echo "<h2>ATUALIZAR LEITOR!</h2>";
-atualizarLeitor($conexao, 1, "Joana", "123", "5555555555", 
-"62991222222", "2001-01-02", "admin");
-echo "Leitor atualizado";
+echo "<h1> Atualizar Leitor </h1>";
+atualizarLeitor($conexao, 1, "Joana", 123, "5555555555", "629777777", 
+"1985-02-02", "admin");
 
-echo "<h2>DELETAR LEITOR!</h2>";
+echo "<h1> Deletar Leitor </h1>";
 deletarLeitor($conexao, 2);
 echo "Leitor deletado";
+
+
+// CRUD EDITORA
+
+echo "<h1> Inserir Editora </h1>";
+// inserirEditora($conexao, "Editora Alfa", "Brasil");
+echo "Editora inserida com sucesso!";
+
+echo "<h1> Listar Editoras </h1>";
+$editora = listarEditoras($conexao);
+while($editoras = $editora->fetch_assoc()){
+    print_r($editoras);
+    echo "<br>";
+}
+
+echo "<h1> Buscar editora por ID </h1>";
+$editora = buscarEditoras($conexao, 4);
+print_r($editora->fetch_assoc());
+echo "<br>";
+
+echo "<h1> Buscar leitor por nome </h1>";
+$editora = buscarEditorasPorNome($conexao, "Alfa");
+while($editoras = $editora->fetch_assoc()){
+    print_r($editoras);
+    echo "<br>";
+}
+
+echo "<h1> Atualizar Editora </h1>";
+atualizarEditora($conexao, 1, "Editora Adauto", "EUA");
+echo "Editora atualizada.";
+
+echo "<h1> Deletar Leitor </h1>";
+deletarEditora($conexao, 2);
+echo "Editora deletado";
+
+
+
+
+
+
+// $leitores = mysql_fetch_assoc($leitor);
 
 ?>
