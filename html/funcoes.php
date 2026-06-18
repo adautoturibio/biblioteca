@@ -121,4 +121,31 @@
         return $stmt->execute();
     }
 
+    function uploadCapa ($arquivo){
+        $diretorio = 'uploads/capas/';
+        $extensao = strtolower(pathinfo($arquivo['name'], PATHINFO_EXTENSION));
+        $permitidas = ['jpg', 'jpeg', 'png'];
+
+        if(!in_array($extensao, $permitidas)){ 
+            return false;
+        }
+
+        if($arquivo['size']> 1024 * 1024 * 2){ // permite até 2MB
+            return false;
+        }
+
+        $nomeArquivo = uniqid() . "_" . $arquivo['name'];
+        $caminho = $diretorio . $nomeArquivo; // uploads/capas/13516516has5_arvore.png
+
+        if (move_uploaded_file($arquivo['tmp_name'], $caminho)){
+            return $caminho;
+        }
+
+        return false;
+    }
+
+
+
+
+
 ?>

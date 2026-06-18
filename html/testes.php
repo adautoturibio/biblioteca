@@ -70,11 +70,4 @@ echo "<h1> Deletar Leitor </h1>";
 deletarEditora($conexao, 2);
 echo "Editora deletado";
 
-
-
-
-
-
-// $leitores = mysql_fetch_assoc($leitor);
-
 ?>
